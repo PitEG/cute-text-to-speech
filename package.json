@@ -1,0 +1,12 @@
+{
+  "name": "com.pitgan.cutetexttospeech",
+  "version": "0.0.1",
+  "displayName": "Cute Text to Speech",
+  "description": "reads a string and an animal crossing style text to speech happens",
+  "unity": "2018.3",
+  "unityRelease": "3f1",
+  "keywords": [],
+  "author": {
+    "name": "Enrique Gan"
+  }
+}
