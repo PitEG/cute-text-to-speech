@@ -15,6 +15,7 @@ namespace PitGan {
 		public AudioClip[] alphabet;
 		public float gapBetweenLetters;
 		private AudioSource audioSource;
+		private bool talking = false;
 
 		private void Awake() {
 			audioSource = GetComponent<AudioSource>();
@@ -26,18 +27,20 @@ namespace PitGan {
 		}
 
 		public void Say(string text) {
+			talking = true;
 			StartCoroutine(SayCoroutine(text));
 		}
 
 		public IEnumerator SayCoroutine(string text) {
 			//don't say anything if the text passed in is null
 			if (text == null) {
-				yield return null;
+				yield break;
 			}
 			for (int i = 0; i < text.Length; i++) {
 				SayCharAtIndex(text, i);
 				yield return new WaitForSeconds(gapBetweenLetters);
 			}
+			talking = false;
 			audioSource.Stop();
 		}
 
